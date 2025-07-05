@@ -63,8 +63,28 @@ function ShowNotAvailableEmoji() {
 }
 
 function ShowTextCopied(content) {
-    navigator.clipboard.writeText(content);
-    ShowToast("Text copied to clipboard.");
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(content).then(function() {
+            ShowToast("Texto copiado para a área de transferência.");
+        }).catch(function(err) {
+            console.error('Erro ao copiar texto: ', err);
+            ShowToast("Erro ao copiar texto.");
+        });
+    } else {
+        // Fallback para navegadores mais antigos
+        try {
+            var textArea = document.createElement("textarea");
+            textArea.value = content;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            ShowToast("Texto copiado para a área de transferência.");
+        } catch (err) {
+            console.error('Erro ao copiar texto: ', err);
+            ShowToast("Erro ao copiar texto.");
+        }
+    }
     return false;
 }
 
@@ -122,11 +142,11 @@ function ScrollTo(top, callback) {
     var delta = top - current;
     var finish = function () {
         html.scrollTop = top;
-        if (callback) {
+        if (callback && typeof callback === 'function') {
             callback();
         }
     };
-    if (!window.performance.now || delta == 0) {
+    if (!window.performance || !window.performance.now || delta == 0) {
         finish();
         return;
     }
@@ -174,10 +194,15 @@ function ScrollToElement(element, callback) {
 }
 
 function GoToMessage(messageId) {
+    if (!messageId || isNaN(messageId)) {
+        ShowToast("ID de mensagem inválido.");
+        return false;
+    }
+    
     var element = document.getElementById("message" + messageId);
     if (element) {
         var hash = "#go_to_message" + messageId;
-        if (location.hash != hash) {
+        if (location.hash !== hash) {
             location.hash = hash;
         }
         ScrollToElement(element, function () {
@@ -187,7 +212,7 @@ function GoToMessage(messageId) {
             }, 1000);
         });
     } else {
-        ShowToast("This message was not exported. Maybe it was deleted.");
+        ShowToast("Esta mensagem não foi exportada ou pode ter sido deletada.");
     }
     return false;
 }

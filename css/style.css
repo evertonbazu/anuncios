@@ -444,45 +444,45 @@ div.toast_shown {
     background-image: url(../images/section_web.png);
 }
 .section.other {
-    background-image: url(../images/section_other.png)
+    background-image: url(../images/section_other.png);
 }
 .page_header a.content {
     background-image: url(../images/back.png);
 }
 .media_call .fill {
-    background-image: url(../images/media_call.png)
+    background-image: url(../images/media_call.png);
 }
 .media_contact .fill {
-    background-image: url(../images/media_contact.png)
+    background-image: url(../images/media_contact.png);
 }
 .media_file .fill {
-    background-image: url(../images/media_file.png)
+    background-image: url(../images/media_file.png);
 }
 .media_game .fill {
-    background-image: url(../images/media_game.png)
+    background-image: url(../images/media_game.png);
 }
 .media_live_location .fill,
 .media_location .fill,
 .media_venue .fill {
-    background-image: url(../images/media_location.png)
+    background-image: url(../images/media_location.png);
 }
 .media_audio_file .fill {
-    background-image: url(../images/media_music.png)
+    background-image: url(../images/media_music.png);
 }
 .media_invoice .fill {
-    background-image: url(../images/media_shop.png)
+    background-image: url(../images/media_shop.png);
 }
 .media_voice_message .fill {
-    background-image: url(../images/media_voice.png)
+    background-image: url(../images/media_voice.png);
 }
 .media_photo .fill {
-    background-image: url(../images/media_photo.png)
+    background-image: url(../images/media_photo.png);
 }
 .media_video .fill {
-    background-image: url(../images/media_video.png)
+    background-image: url(../images/media_video.png);
 }
 
-@media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+@media only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
 .section.calls {
     background-image: url(../images/section_calls@2x.png);
 }
@@ -514,36 +514,36 @@ div.toast_shown {
     background-image: url(../images/back@2x.png);
 }
 .media_call .fill {
-    background-image: url(../images/media_call@2x.png)
+    background-image: url(../images/media_call@2x.png);
 }
 .media_contact .fill {
-    background-image: url(../images/media_contact@2x.png)
+    background-image: url(../images/media_contact@2x.png);
 }
 .media_file .fill {
-    background-image: url(../images/media_file@2x.png)
+    background-image: url(../images/media_file@2x.png);
 }
 .media_game .fill {
-    background-image: url(../images/media_game@2x.png)
+    background-image: url(../images/media_game@2x.png);
 }
 .media_live_location .fill,
 .media_location .fill,
 .media_venue .fill {
-    background-image: url(../images/media_location@2x.png)
+    background-image: url(../images/media_location@2x.png);
 }
 .media_audio_file .fill {
-    background-image: url(../images/media_music@2x.png)
+    background-image: url(../images/media_music@2x.png);
 }
 .media_invoice .fill {
-    background-image: url(../images/media_shop@2x.png)
+    background-image: url(../images/media_shop@2x.png);
 }
 .media_voice_message .fill {
-    background-image: url(../images/media_voice@2x.png)
+    background-image: url(../images/media_voice@2x.png);
 }
 .media_photo .fill {
-    background-image: url(../images/media_photo@2x.png)
+    background-image: url(../images/media_photo@2x.png);
 }
 .media_video .fill {
-    background-image: url(../images/media_video@2x.png)
+    background-image: url(../images/media_video@2x.png);
 }
 }
 
@@ -580,5 +580,27 @@ div.toast_shown {
     display: table-cell;
 }
 .bot_button_column_separator {
-    width: 2px
+    width: 2px;
+}
+
+/* Melhorias de acessibilidade */
+a:focus,
+button:focus,
+.bot_button:focus {
+    outline: 2px solid #168acd;
+    outline-offset: 2px;
+}
+
+.message:focus-within {
+    background-color: rgba(242,246,250,0.7);
+}
+
+/* Melhoria de contraste para texto pequeno */
+.details {
+    color: #5a6166;
+}
+
+/* Scroll suave para toda a página */
+html {
+    scroll-behavior: smooth;
 }
