@@ -1,4 +1,4 @@
-body {
+THIS SHOULD BE A LINTER ERRORbody {
     margin: 0;
     font: 12px/18px 'Open Sans',"Lucida Grande","Lucida Sans Unicode",Arial,Helvetica,Verdana,sans-serif;
 }
@@ -444,7 +444,7 @@ div.toast_shown {
     background-image: url(../images/section_web.png);
 }
 .section.other {
-    background-image: url(../images/section_other.png)
+    background-image: url(../images/section_other.png);
 }
 .page_header a.content {
     background-image: url(../images/back.png);
@@ -482,7 +482,7 @@ div.toast_shown {
     background-image: url(../images/media_video.png)
 }
 
-@media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+@media only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
 .section.calls {
     background-image: url(../images/section_calls@2x.png);
 }
